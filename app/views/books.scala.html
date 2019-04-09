@@ -1,0 +1,149 @@
+@*
+ * This template takes a single argument, a String containing a
+ * message to display.
+ *@
+
+ @import models.Books
+ @(booksList: List[Books], genreList: List[Genre])
+
+ @main("Books") {
+      <!-- https://getbootstrap.com/docs/4.0/layout/grid/ -->
+      <div class="row">
+        <div class="col-sm-auto">
+          <h4>Genres</h4>
+          <!-- https://getbootstrap.com/docs/4.0/components/list-group/ -->
+          <div class="list-group text-right">
+            <a href="@routes.HomeController.books(0)" class="list-group-item  list-group-item-action">All Genres
+              <span class="badge badge-secondary">@booksList.size()</span>
+            </a>
+
+            @* Start of loop - for each category in the categoryList *@
+            @* Also display the number of Books in each category *@
+            
+            @for(genre <- genreList) {
+              <a href="@routes.HomeController.books(genre.getId)" class="list-group-item  list-group-item-action">@genre.getName
+                <span class="badge badge-secondary">@genre.getBooks.size()</span>
+              </a>
+            } @* End category loop *@
+
+          </div>
+
+        </div>
+
+        <div class="col-sm-auto">
+
+            @* Display flash message - after adding a books *@
+            @if(flash.containsKey("success")) {
+              <div class="alert alert-success">
+                  @flash.get("success")
+              </div>
+            } 
+
+          <!-- https://getbootstrap.com/docs/4.0/content/tables/ -->
+          <table class="table table-hover">
+            <thead>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">ISBN13 number</th>
+              <th scope="col">Publisher</th>
+              <th scope="col">Description</th>
+              <th scope="col">Genre</th>
+              <th scope="col">stock</th>
+              <th scope="col">Price</th>
+              <th scope="col">Pages</th>
+            </thead>
+            <tbody>
+            @* Iterate through books, adding a new row for each in the list *@
+            @* for each books in the books list *@
+            @for(books <- booksList) {
+              <tr scope="row">
+                <td>@books.getId</td>
+                <td>@books.getTitle</td>
+                <td>@books.getISBN13</td>
+               
+                <td>@books.getPublisher</td>
+                <td>@books.getDescription</td>
+                <td>@books.getGenre.getName</td>
+                <td>@books.getStock</td>
+                <td class="text-right">&euro;@("%.2f".format(books.getPrice))</td>
+                <td>@books.getPages</td>
+                <td>
+                  <!-- https://fontawesome.com/get-started/web-fonts-with-css -->
+                  <!-- https://fontawesome.com/icons?d=gallery -->
+                  <!-- https://getbootstrap.com/docs/4.0/components/buttons/ -->
+                    <a href="@routes.HomeController.updateBooks(books.getId)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-edit"></i></a>
+                  </td>
+                  <!-- Delete product button -->
+                  <td>
+                    <a href="@routes.HomeController.deleteBooks(books.getId)" class="btn btn-outline-danger btn-sm"
+                    onclick="return confirmDel();">
+                    <i class="far fa-trash-alt"></i></a>
+                  </td>
+
+              </tr>
+            } @* End for loop*@
+            </tbody>
+            <tfoot>
+              <tr scope="row">
+                
+              </tr>
+            </tfoot>
+          </table>
+
+
+
+
+
+          <div class="container">
+            <h2>Cards Columns</h2>
+            <p>The .card-columns class creates a masonry-like grid of cards. The layout will automatically adjust as you insert more cards.</p>
+            <p><strong>Note:</strong> The cards are displayed vertically on small screens (less than 576px):</p>
+            <div class="card-columns">
+              <div class="card bg-primary">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the first card</p>
+                </div>
+              </div>
+              <div class="card bg-warning">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the second card</p>
+                </div>
+              </div>
+              <div class="card bg-success">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the third card</p>
+                </div>
+              </div>
+              <div class="card bg-danger">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the fourth card</p>
+                </div>
+              </div>  
+              <div class="card bg-light">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the fifth card</p>
+                </div>
+              </div>
+              <div class="card bg-info">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the sixth card</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+		  
+          <div>
+              <a href="@routes.HomeController.addBooks()">
+                <button class="btn btn-primary">Add a Book</button>
+              </a>
+          </div>
+
+        </div>
+ }

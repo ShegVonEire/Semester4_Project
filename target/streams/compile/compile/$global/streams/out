@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Isle-of-books/app/views/payment.scala.html:119:75: not found: value example[0m
+[0m[[0m[31merror[0m] [0m[0m            <input type="text" id="email" name="email" placeholder="email@example.com">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

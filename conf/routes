@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+GET     /about                      controllers.HomeController.about
+
+
+# bookss accepts a parameter default to 0 (Long)
+GET     /books                      controllers.HomeController.books(cat:Long ?=0L)
+
+# Display the add books page
+GET		/addBooks					controllers.HomeController.addBooks()
+GET     /sendfeedback               controllers.HomeController.sendfeedback()
+GET     /signup                     controllers.HomeController.signup()
+GET     /contactus                  controllers.HomeController.contactus()
+GET     /payment                    controllers.HomeController.payment()
+
+# Process the add books form after it is submitted using the POST method 
+POST	/addBooksSubmit		     	controllers.HomeController.addBooksSubmit()
+
+# Update books (by id)
+GET		/updateBooks/:id			controllers.HomeController.updateBooks(id:Long)
+
+# Delete a books by an id passed as a parameter
+GET     /delBooks/:id               controllers.HomeController.deleteBooks(id:Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
