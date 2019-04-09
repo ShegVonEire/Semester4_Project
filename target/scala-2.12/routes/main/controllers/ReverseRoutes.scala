@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Isle-of-books/conf/routes
-// @DATE:Tue Apr 09 14:08:07 IST 2019
+// @SOURCE:C:/Users/X00148076/Downloads/Semester4_Project/conf/routes
+// @DATE:Tue Apr 09 15:44:25 BST 2019
 
 import play.api.mvc.Call
 
@@ -18,43 +18,49 @@ package controllers {
     }
 
   
-    // @LINE:21
+    // @LINE:12
+    def feedback(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "feedback")
+    }
+  
+    // @LINE:23
+    def sendFeedbackSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "sendFeedbackSubmit")
+    }
+  
+    // @LINE:22
     def addBooksSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addBooksSubmit")
     }
   
-    // @LINE:24
+    // @LINE:26
     def updateBooks(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateBooks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:15
-    def sendfeedback(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "sendfeedback")
-    }
-  
-    // @LINE:27
+    // @LINE:29
     def deleteBooks(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "delBooks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:17
+    // @LINE:18
     def contactus(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "contactus")
     }
   
-    // @LINE:16
+    // @LINE:17
     def signup(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "signup")
     }
   
-    // @LINE:18
+    // @LINE:19
     def payment(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "payment")
@@ -72,10 +78,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "books" + play.core.routing.queryString(List(if(cat == 0L) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)))))
     }
   
-    // @LINE:14
+    // @LINE:15
     def addBooks(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addBooks")
+    }
+  
+    // @LINE:16
+    def sendFeedback(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "sendFeedback")
     }
   
     // @LINE:6
@@ -86,14 +98,14 @@ package controllers {
   
   }
 
-  // @LINE:31
+  // @LINE:33
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:31
+    // @LINE:33
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

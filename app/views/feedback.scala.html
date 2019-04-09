@@ -1,0 +1,53 @@
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+
+@import models.Books
+@(feedbackList: List[Feedback])
+
+@main("Feedback") {
+<!-- https://getbootstrap.com/docs/4.0/layout/grid/ -->
+<div class="row">
+
+    <div class="col-sm-auto">
+
+
+        @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+            @flash.get("success")
+        </div>
+        }
+
+        <!-- https://getbootstrap.com/docs/4.0/content/tables/ -->
+        <table class="table table-hover">
+            <thead>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Message</th>
+
+            </thead>
+            <tbody>
+
+            @for(feedback <- feedbackList) {
+            <tr scope="row">
+                <td>@feedback.getEmail</td>
+                <td>@feedback.getName</td>
+                <td>@feedback.getCountry</td>
+                <td>@feedback.getMessage</td>
+
+
+            </tr>
+            } @* End for loop*@
+            </tbody>
+            <tfoot>
+            <tr scope="row">
+
+            </tr>
+            </tfoot>
+        </table>
+
+
+    </div>
+    }

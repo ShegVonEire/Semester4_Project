@@ -12,3 +12,4 @@ INSERT INTO GENRE VALUES(4,'Cooking', 'Cooking');
 INSERT INTO GENRE VALUES(5,'Poetry', 'Poetry');
 
 INSERT INTO BOOKS VALUES (1,'Jane Eyre', 97801, 'Penguin Classics', 'A novel of intense power and intrigue, Jane Eyre has dazzled generations of readers with its depiction of a womans quest for freedom', 30, 10.00, 624, 2);
+INSERT INTO FEEDBACK VALUES(1,'johnsmith@gmail.com', 'Johnny Smith', 'Ireland', 'a lot of colors!');

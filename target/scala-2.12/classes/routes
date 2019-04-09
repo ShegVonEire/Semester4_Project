@@ -9,16 +9,18 @@ GET     /about                      controllers.HomeController.about
 
 # bookss accepts a parameter default to 0 (Long)
 GET     /books                      controllers.HomeController.books(cat:Long ?=0L)
+GET     /feedback                      controllers.HomeController.feedback
 
 # Display the add books page
 GET		/addBooks					controllers.HomeController.addBooks()
-GET     /sendfeedback               controllers.HomeController.sendfeedback()
+GET     /sendFeedback               controllers.HomeController.sendFeedback()
 GET     /signup                     controllers.HomeController.signup()
 GET     /contactus                  controllers.HomeController.contactus()
 GET     /payment                    controllers.HomeController.payment()
 
 # Process the add books form after it is submitted using the POST method 
 POST	/addBooksSubmit		     	controllers.HomeController.addBooksSubmit()
+POST	/sendFeedbackSubmit		     	controllers.HomeController.sendFeedbackSubmit()
 
 # Update books (by id)
 GET		/updateBooks/:id			controllers.HomeController.updateBooks(id:Long)

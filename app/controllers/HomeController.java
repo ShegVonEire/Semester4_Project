@@ -68,6 +68,17 @@ public class HomeController extends Controller {
         return ok(books.render(booksList, genreList));
     }
 
+	    @Transactional
+    public Result feedback() {
+        List<Feedback> feedbackList = new ArrayList<Feedback>();
+        feedbackList = Feedback.findAll();
+
+        return ok(feedback.render(feedbackList));
+    }
+
+	
+	
+	
     // Load the add Books view
     // Display an empty form in the view
     @Transactional
@@ -137,9 +148,38 @@ public class HomeController extends Controller {
         // Redirect home
         return redirect(controllers.routes.HomeController.books(0));
     }
+	
+	public Result sendFeedback() {
+        Form<Feedback> submitFeedbackForm = formFactory.form(Feedback.class);
+        return ok(sendFeedback.render(submitFeedbackForm));
+    }
 
-    public Result sendfeedback() {
-        return ok(sendfeedback.render());
+    public Result sendFeedbackSubmit() {
+        Feedback f;
+        // Create a product form object (to hold submitted data)
+        // 'Bind' the object to the submitted form (this copies the filled form)
+        Form<Feedback> sendFeedbackForm = formFactory.form(Feedback.class).bindFromRequest();
+
+        // Check for errors (based on Product class annotations)
+        if(sendFeedbackForm.hasErrors()) {
+            return badRequest(sendFeedback.render(sendFeedbackForm));
+        }
+
+        // Save if new (no id) otherwise update product
+        f = sendFeedbackForm.get();
+
+        if (f.getId() != null) {
+            f.update();
+        }
+        else {
+            f.save();
+        }
+
+        // Set a flash message
+        flash("Success", "Your feedback has been sent! Thank you!");
+
+        // Redirect to the books libary page
+        return redirect(controllers.routes.HomeController.books(0));
     }
     
     public Result signup() {

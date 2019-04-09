@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Isle-of-books/conf/routes
-// @DATE:Tue Apr 09 14:08:07 IST 2019
+// @SOURCE:C:/Users/X00148076/Downloads/Semester4_Project/conf/routes
+// @DATE:Tue Apr 09 15:44:25 BST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,7 +19,27 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:12
+    def feedback: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.feedback",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "feedback"})
+        }
+      """
+    )
+  
+    // @LINE:23
+    def sendFeedbackSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.sendFeedbackSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendFeedbackSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:22
     def addBooksSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addBooksSubmit",
       """
@@ -29,7 +49,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:26
     def updateBooks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateBooks",
       """
@@ -39,17 +59,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
-    def sendfeedback: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.sendfeedback",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendfeedback"})
-        }
-      """
-    )
-  
-    // @LINE:27
+    // @LINE:29
     def deleteBooks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteBooks",
       """
@@ -59,7 +69,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:18
     def contactus: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.contactus",
       """
@@ -69,7 +79,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:17
     def signup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.signup",
       """
@@ -79,7 +89,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:19
     def payment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.payment",
       """
@@ -109,12 +119,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:15
     def addBooks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addBooks",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addBooks"})
+        }
+      """
+    )
+  
+    // @LINE:16
+    def sendFeedback: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.sendFeedback",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendFeedback"})
         }
       """
     )
@@ -131,7 +151,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:31
+  // @LINE:33
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -139,7 +159,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:31
+    // @LINE:33
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

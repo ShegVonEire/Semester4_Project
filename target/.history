@@ -8,3 +8,7 @@ run
 exit
 run
 exit
+compile
+run
+clean
+run
