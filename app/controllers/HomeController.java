@@ -151,7 +151,7 @@ public class HomeController extends Controller {
 	
 	public Result sendFeedback() {
         Form<Feedback> submitFeedbackForm = formFactory.form(Feedback.class);
-        return ok(sendFeedback.render(submitFeedbackForm));
+        return ok(sendfeedback.render(submitFeedbackForm));
     }
 
     public Result sendFeedbackSubmit() {
@@ -162,7 +162,7 @@ public class HomeController extends Controller {
 
         // Check for errors (based on Product class annotations)
         if(sendFeedbackForm.hasErrors()) {
-            return badRequest(sendFeedback.render(sendFeedbackForm));
+            return badRequest(sendfeedback.render(sendFeedbackForm));
         }
 
         // Save if new (no id) otherwise update product

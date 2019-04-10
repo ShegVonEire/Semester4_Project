@@ -22,7 +22,7 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object sendFeedback extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[models.Feedback],play.twirl.api.HtmlFormat.Appendable] {
+object sendfeedback extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[models.Feedback],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*1.2*/(submitFeedbackForm: Form[models.Feedback]):play.twirl.api.HtmlFormat.Appendable = {
@@ -78,8 +78,8 @@ Seq[Any](format.raw/*4.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 09 15:44:25 BST 2019
-                  SOURCE: C:/Users/X00148076/Downloads/Semester4_Project/app/views/sendFeedback.scala.html
+                  DATE: Wed Apr 10 13:55:21 IST 2019
+                  SOURCE: /home/wdd/Semester4_Project/app/views/sendfeedback.scala.html
                   HASH: 66fd1d2eafe8acd5b03f1ab4585820670e517c45
                   MATRIX: 970->1|1086->46|1109->63|1153->79|1181->129|1208->131|1239->154|1278->156|1306->158|1361->244|1389->246|1535->382|1576->384|1604->386|1616->390|1647->400|1676->480|1705->532|1733->534|1825->605|1853->607|1957->690|1985->692|2087->773|2115->775|2223->862|2251->864|2359->951|2387->952|2559->1097|2574->1103|2618->1126|2718->1196|2746->1197|2806->1227
                   LINES: 28->1|31->2|32->3|35->4|36->5|37->6|37->6|37->6|39->8|41->10|42->11|42->11|42->11|43->12|43->12|43->12|45->16|46->17|47->18|47->18|48->19|48->19|49->20|49->20|50->21|50->21|51->22|51->22|52->23|57->28|57->28|57->28|61->32|61->32|62->33

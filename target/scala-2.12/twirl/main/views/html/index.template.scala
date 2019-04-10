@@ -30,8 +30,7 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*7.19*/("""
-
+Seq[Any](format.raw/*8.1*/("""
 """),_display_(/*9.2*/main("Home Page")/*9.19*/ {_display_(Seq[Any](format.raw/*9.21*/("""
       """),format.raw/*10.7*/("""<!-- this css class is not part of bootstrap but is defined in /css/style.css -->
       <div class="starter-template">
@@ -54,11 +53,11 @@ Seq[Any](format.raw/*7.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 09 15:44:25 BST 2019
-                  SOURCE: C:/Users/X00148076/Downloads/Semester4_Project/app/views/index.scala.html
-                  HASH: 88d43837e39ea1eba0f7a4d06dfbe64253b189d5
-                  MATRIX: 960->120|1072->137|1102->142|1127->159|1166->161|1201->169
-                  LINES: 28->7|33->7|35->9|35->9|35->9|36->10
+                  DATE: Wed Apr 10 13:55:21 IST 2019
+                  SOURCE: /home/wdd/Semester4_Project/app/views/index.scala.html
+                  HASH: f9a39f297c83326f6d88fe7695c13f6db7571fac
+                  MATRIX: 960->114|1071->132|1098->134|1123->151|1162->153|1196->160
+                  LINES: 28->7|33->8|34->9|34->9|34->9|35->10
                   -- GENERATED --
               */
           
